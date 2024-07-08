@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: YOUR-DOCKER-IMAGE  # Replace with your actual image name
+        env:
+        - name: REDIS_HOST
+          value: "redis"
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: "64Mi"
+          limits:
+            cpu: 200m
+            memory: "128Mi"
