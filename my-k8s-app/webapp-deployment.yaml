@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: riteshzode/flaskapp:v3 # Replace with your actual image name
+        image: riteshzode/flaskapp:v3 # Replace with image version v1, v2, v3
         env:
         - name: REDIS_HOST
           value: "redis"
