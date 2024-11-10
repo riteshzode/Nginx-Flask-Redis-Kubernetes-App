@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379   # Explicitly target the Redis port inside the container
+  selector:
+    app: redis
+  clusterIP: None  # For StatefulSet, this makes the service headless and allows pod-to-pod communication.
